@@ -11,5 +11,11 @@
             <!-- define a simple camera -->
         <a-entity camera></a-entity>
   </a-scene>
+  <?php
+    include "BL/SQLConnection.php";
+    include "BL/useri.php";
+    /*$u = new Useri("Test", "test123", "passtest", "email@email.com");
+    $u->insert($u);*/
+    ?>
 </body>
 </html>
