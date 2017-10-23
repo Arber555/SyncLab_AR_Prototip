@@ -8,12 +8,10 @@ class Projektet{
     private $size;
     private $user_id;
     
-    public function __construct($e, $p, $t, $s, $u)
+    public function __construct($e, $p, $u)
     {
         $this->emri = $e;
         $this->path = $p;
-        $this->tipi = $t;
-        $this->size = $s;
         $this->user_id = $u;
     }
 
@@ -25,14 +23,6 @@ class Projektet{
         return $this->path;
     }
 
-    function getTipi() {
-        return $this->tipi;
-    }
-
-    function getSize() {
-        return $this->size;
-    }
-    
     function getUser_Id() {
         return $this->user_id;
     }
@@ -45,14 +35,6 @@ class Projektet{
         $this->path = $path;
     }
 
-    function setTipi($tipi) {
-        $this->tipi = $tipi;
-    }
-
-    function setSize($size) {
-        $this->size = $size;
-    }
-
     function setUser_Id($user_id) {
         $this->user_id = $user_id;
     }
@@ -61,13 +43,24 @@ class Projektet{
     {
         $sqlConnection = new SQLConnection();
         $con = $sqlConnection->connection();
-        $stmt = $con->prepare("INSERT INTO Projektet(emri, path, tipi, size, user_id) values (?,?,?,?,?)");
 
-        $stmt->bind_param("sssii", $p->emri, $p->path, $p->tipi, $p->size, $p->user_id);
+        $stmt = $con->prepare("INSERT INTO Projektet(emri, path, user_id) values (?,?,?)");
+
+        $stmt->bind_param("ssi", $p->emri, $p->path, $p->user_id);
         
         if($stmt->execute())
         {
             $stmt->close();
+
+            $fp = fopen($p->path.''.$p->emri.'.html', 'w');
+            
+            $filename = "../webcontent/index.php";
+            $handle = fopen($filename, "r");
+            $contents = fread($handle, filesize($filename));
+
+            fwrite($fp, $contents);
+            fclose($fp);
+
             return true;
         }
         else
@@ -77,12 +70,12 @@ class Projektet{
         return false; 
     }
     
-    public function update($id, $e, $p, $t, $s, $u)
+    public function update($id, $e, $p,  $u)
     {
         $sqlConnection = new SQLConnection();
         $con = $sqlConnection->connection();
        
-        $sql = "UPDATE Projektet SET emri='".$e."', path='".$p."', tipi='".$t."', size='".$s."', user_id='".$u."' WHERE id=".$id."";
+        $sql = "UPDATE Projektet SET emri='".$e."', path='".$p."', user_id='".$u."' WHERE id=".$id."";
         
         if($con->query($sql) === TRUE) 
         {

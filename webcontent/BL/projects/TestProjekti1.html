@@ -1,0 +1,25 @@
+<html>
+<script src="../ARjs/aframe.min.js"></script>
+<!-- include ar.js for A-Frame -->
+<script src="../ARjs/aframe-ar.js"></script>
+<body style='margin : 0px; overflow: hidden;'>
+  <a-scene embedded arjs='trackingMethod: best;'>
+        <a-marker preset='hiro'>
+            <!-- here define the content to display on top of the marker -->
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5;'></a-box>
+        </a-marker>
+            <!-- define a simple camera -->
+        <a-entity camera></a-entity>
+  </a-scene>
+  <?php
+    include "BL/SQLConnection.php";
+    include "BL/useri.php";
+    include "BL/projektet.php";
+    /*$u = new Useri("Test", "test123", "passtest", "email@email.com");
+    $u->insert($u);*/
+    $p = new Projektet("TestProjekti1", "BL/projects/", 1);
+    $p->insert($p);
+
+    ?>
+</body>
+</html>
