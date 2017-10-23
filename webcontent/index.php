@@ -10,17 +10,17 @@
     <a-scene embedded arjs='trackingMethod: best;' id="scene">
         <a-marker preset='hiro' id="marker">
             <!-- here define the content to display on top of the marker -->
-           <!-- <a-box position='0 0.5 0' material='color: red; opacity: 0.5;' id="object"></a-box>-->
+            <a-box position='0 0.5 0' material='color: red; opacity: 0.5;' id="object"></a-box>
             <!--<a-sphere position='0 0.5 0' material='color: red; opacity: 0.5;'s></a-sphere>-->
 
         </a-marker>
 
         <!-- define your gltf asset -->
-            <a-assets>
+            <!--<a-assets>
                 <a-asset-item id="tree" src="../3D_Models/busterDrone/busterDrone.gltf"></a-asset-item>
-            </a-assets>
+            </a-assets>-->
                 <!-- use your gltf model -->
-            <a-entity gltf-model="#tree"></a-entity>
+            <!--<a-entity gltf-model="#tree"></a-entity>-->
 
             <!-- define a simple camera -->
         <a-entity camera></a-entity>
@@ -67,9 +67,9 @@
     include "BL/useri.php";
     include "BL/projektet.php";
     /*$u = new Useri("Test", "test123", "passtest", "email@email.com");
-    $u->insert($u);*/
-    $p = new Projektet("TestProjekti1", "BL/projects/", 1);
-    $p->insert($p);
+    $u->insert($u);
+    $p = new Projektet("TestProjekti1", "BL/projects/", 1); arjsDebugUIContainer
+    $p->insert($p);*/
 
     ?>
 </body>
