@@ -1,0 +1,613 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Quicksand', sans-serif;
+
+}
+body,html{
+    height: 100%;
+    background-repeat: no-repeat;
+    width: 100%;
+    background-size: cover;
+    overflow: hidden;
+}
+#wrapper{
+    width: 1000px;
+    margin: 0 auto;
+    
+}
+header{
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px -1px 2px 0px;
+    line-height: 77px;
+    background-color: #fff;
+    font-size: 16px; 
+
+}
+header .main-logo{
+    color: #000;
+    float: left;
+    margin-top: 13px;
+}
+header .main-logo img{
+
+    width: 140px;
+    height: 50px;
+}
+header #account{
+    float: right;  
+}
+header h1{
+    font-size: 17px;
+
+}
+header #account .fa{
+
+}
+header #3dview h1{
+    
+}
+section{
+    width: 100%;
+    margin-top: 8.5%;
+    height: 100%;
+    overflow: hidden;
+}
+section .info{
+    float: right;
+}
+section .logo-img{
+    float: right;
+    width: 35%;
+}
+section img{
+    width: 50%;
+
+}
+section h1{
+    font-size: 190%;
+    padding: 1px 0;
+    color: #fff;
+}
+section h2{
+    width: 450px;
+    margin-bottom: 18.4%;
+    padding: 21px 0;
+    font-size: 120%;
+    color: #fff;
+}
+section .info{
+    float: left;
+}
+#login-style,
+#register-style{
+    display: block;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 13px;
+    width: 77%;
+    font-size: 126%;
+    float: left;
+}
+#login-style:focus,
+#register-style:focus{
+    outline: none;
+}
+#login-style{
+    border: 2px solid #fff;
+    background-color: transparent;
+    color: #fff;
+    border-radius: 10px;
+
+}
+#login-style:hover{
+    background-color: #fff;
+    color: #000;
+    transition: 0.8s all ease;
+}
+#register-style{
+    border: 2px solid #fff;
+    background-color: #fff;
+    color: #000;
+    border-radius: 10px;
+
+    margin-top: 7.6%;
+}
+#register-style:hover{
+    background-color: transparent;
+    color: #fff;
+    transition: 0.8s all ease;
+}
+#log-in{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
+.login-content{
+    width: 40%;
+    background-color: #fff;
+    left: 30%;
+    top: 10%;
+    height: 400px;
+    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    border-radius: 10px;
+    -webkit-animation-name: fromTop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fromTop;
+    animation-duration: 0.4s;
+
+}
+#login-username{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 30%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#login-password{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 50%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#login-username:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#login-password:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#log-in .fa-sign-in{
+    position: absolute;
+    right: 10%;
+    top: 29%;
+    font-size: 150px;
+}
+#log-in .fa-user{
+    position: absolute;
+    top: 33%;
+    left: 17%;    
+}
+#log-in .fa-key{
+    position: absolute;
+    top: 53%;
+    left: 17%;
+}
+#log-in .fa-close{
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    border-radius: 0 10px 0 0;
+}
+#log-in .fa-close:hover{
+    background-color: rgb(132,207,187);
+    cursor: pointer;
+    transition: 0.5s all ease;
+}
+#log-in .fa-close:hover{
+    background-color: rgb(132,207,187);
+    cursor: pointer;
+    transition: 0.5s all ease;
+
+}
+#log-in #login-button{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    border: none;
+    background-color: rgb(132,207,187);
+    color: #fff;
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 6px;
+}
+#log-in #login-button:focus{
+    outline: none;    
+}
+#log-in h1{
+    position: absolute;
+    top: 10%;
+    left: 17%;
+    font-size: 40px;
+    color: rgb(132,207,187);
+}
+#log-in .register-now{
+    position: absolute;
+    top: 70%;
+    left: 34%;
+}
+#log-in a{
+    text-decoration: none;
+    color: rgb(132,207,187);
+}
+#log-in a:hover{
+    font-weight: bold;
+    transition: 0.5s all ease;
+}
+#log-in #login-error{
+    position: absolute;
+    bottom: 10%;
+    left: 20%;
+    color: red;
+}
+section a{
+    text-decoration: none;
+    outline: none;
+}
+section .fa-close{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+#projects{
+    margin-top: 4%;
+    width: 100%;
+    height: 60px;
+    line-height: 60px;
+    font-size: 16px;
+}
+#projects #projects-title h1{
+    float: left;
+}
+#projects #createproject{
+    float: right;
+
+}
+.createproject{
+    border: none;
+    background-color: rgb(132,207,187);
+    color: #fff;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 6px;
+}
+.createproject:focus{
+    outline: none;
+}
+hr{
+    margin-top: 5%;
+}
+#find{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+}
+#find .sort h4{
+    float: left;
+}
+#find .search{
+    float: right;
+}
+#sort,
+#search{
+    border: none;
+    border: #fff;
+}
+#sort:focus,
+#search:focus{
+    outline: none;
+}
+.fa-search{
+    color: #ccc;
+    padding: 5px;
+}
+
+article{
+    width: 23%;
+    height: 100%;
+    overflow: hidden;
+    float: left;
+    cursor: pointer;
+    margin: 4% 1% 0 1%;
+}
+/*#article{
+float: left;  
+width: 23%;
+margin-right: 2%;
+cursor: pointer;
+}
+*/
+article:hover{
+    box-shadow: 2px 0px 50px 10px rgba(0, 0, 0, .4);
+    transition: 0.5s all ease;
+}
+article img{
+    width: 100%;
+    height: 100%;
+}
+.article-info{
+    background-color: rgb(132,207,187);
+    width: 100%;
+
+}
+.article-info h1{
+    width: 85%;
+    height: 2px;    
+    color: #fff;
+    font-size: 19px;
+}
+.article-info p{
+    margin-top: 16%;
+    color: #fff;
+    font-size: 14px;
+}
+.article-info h1,
+.article-info p{
+    padding: 10px;
+
+}
+#create-project{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+
+}
+.create-project-content{
+    width: 70%;
+    background-color: #fff;
+    left: 15%;
+    top: 10%;
+    height: 600px;
+    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    border-radius: 10px;
+    -webkit-animation-name: fromTop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fromTop;
+    animation-duration: 0.4s;
+
+}
+#create-project img{
+    width: 24%;
+    display: block;
+    position: absolute;
+    left: 38%;
+    top: 10%;
+
+}
+#create-project #project-name{
+    display: block;
+    border-bottom: 2px solid rgb(243,243,243);
+    border-top: none;
+    border-right: none;
+    border-left: none;
+    left: 26%;
+    position: absolute;
+    top: 40%;
+    font-size: 30px;
+    padding-left: 10%;
+
+}
+#create-project #project-name:focus{
+    outline: none;
+}
+#project-name::placeholder{
+    color: rgb(221,221,221);
+    font-weight: bold;
+}
+#create-project #createproject-button{
+    position: absolute;
+    bottom: 4%;
+    right: 4%;
+    border: none;
+    background-color: rgb(132,207,187);
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 6px;
+
+}
+#create-project #createproject-button:focus{
+    outline: none;
+}
+#create-project .fa-close{
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    border-radius: 0 10px 0 0;
+}
+#create-project .fa-close:hover{
+    background-color: rgb(132,207,187);
+    cursor: pointer;
+    transition: 0.5s all ease;
+
+}
+#create-project .fa-close:focus{
+    outline: none;
+}
+#createproject-error{
+    position: absolute;
+    bottom: 12%;
+    right: 4%;
+    color: red;
+
+}
+/*
+#upload-image{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+
+}
+.upload-image-content{
+    width: 70%;
+    background-color: #fff;
+    left: 15%;
+    top: 10%;
+    height: 600px;
+    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    border-radius: 10px;
+    -webkit-animation-name: fromLeft;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fromLeft;
+    animation-duration: 0.4s;
+
+}
+#upload-image img{
+    width: 24%;
+    display: block;
+    position: absolute;
+    left: 38%;
+    top: 10%;
+    background-color: #000;
+}
+*/
+#create-project .upload-image h1{
+    position: absolute;
+    top: 55%;
+    left: 31%;
+    color: rgb(221,221,221);
+}
+#create-project .upload-image label{
+    position: absolute;
+    top: 65%;
+    left: 45%;
+    border: none;
+    background-color: rgb(132,207,187);
+    color: #fff;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 6px;
+}
+#create-project .upload{
+    display: none;
+}
+#create-project #upload:focus{
+    outline: none;
+}
+
+
+#uploadimage-error{
+    position: absolute;
+    bottom: 20%;
+    right: 4%;
+    color: red;
+}
+#left-container{
+    position: fixed;
+    left: 0;
+    overflow: hidden;
+
+}
+.left-container{
+    
+    background-color: rgb(247,247,247);
+    overflow: hidden;
+}
+.left-container h1{
+    font-size: 14px;
+    font-weight: bolder;
+    color: rgb(32,47,98);
+}
+.left-container #search-models{
+    width: 100%;
+    margin-left: 3%;
+    overflow: hidden;
+}
+/*
+#models{
+    width: 53%;
+}
+.models{
+    background-color:rgb(132,207,187);   
+    margin: 1% 1%;
+    float: left;
+    padding: 14px 10px;
+    overflow: hidden;
+    cursor: pointer;
+}
+.models img{
+    width: 40px;
+    height: 40px;
+    margin: 0 auto;
+    width: 100%;
+    
+}
+.models p{
+    color: #fff;
+    font-size: 12px;
+    margin-top: 13%;
+    text-transform: uppercase;
+    font-weight: bold
+}
+*/
+@-webkit-keyframes fromTop{
+    from{
+        top:-300px; opacity:0;
+    }
+    to{
+        top:10%; opacity:1;
+    }
+}
+@keyframes fromTop{
+    from{
+        top:-300px; opacity:0;
+    }
+    to{
+        top:10%; opacity:1;
+    }
+}
+@-webkit-keyframes fromLeft{
+    from{
+        left:-300px; opacity:0;
+    }
+    to{
+        left:15%; opacity:1;
+    }
+}
+@keyframes fromLeft{
+    from{
+        left:-300px; opacity:0;
+    }
+    to{
+        left:15%; opacity:1;
+    }
+}
+@-webkit-keyframes fromRight{
+    from{
+        right:-300px; opacity:0;
+    }
+    to{
+        right:4%; opacity:1;
+    }
+}
+@keyframes fromRight{
+    from{
+        right:-300px; opacity:0;
+    }
+    to{
+        right:4%; opacity:1;
+    }
+}

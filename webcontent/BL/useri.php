@@ -176,6 +176,28 @@ class Useri{
             return "No results found.";
         }
     }
+
+    public static function loginUser($userName, $password)
+    {
+        $sqlConnection = new SQLConnection();
+        $con = $sqlConnection->connection();
+        $sql = "Select * from Useri where username ='" . $userName . "' and password = '" . $password . "'";
+
+        $result = mysqli_query($con, $sql);
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            $row = mysqli_fetch_assoc($result);
+            if(isset($row))
+            {
+                return array("login"=>true, "user"=>$row);
+            }
+        }
+        else
+        {
+            return array("login"=>false);
+        }
+    }
 }
     
     

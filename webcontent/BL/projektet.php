@@ -4,9 +4,10 @@ class Projektet{
     
     private $emri;
     private $path;
-    private $tipi;
-    private $size;
-    private $user_id;
+    private $img;
+    private $tipi; // \0/
+    private $size; // \0/
+    private $user_id; 
     
     public function __construct($e, $p, $u)
     {
@@ -44,14 +45,16 @@ class Projektet{
         $sqlConnection = new SQLConnection();
         $con = $sqlConnection->connection();
 
-        $stmt = $con->prepare("INSERT INTO Projektet(emri, path, user_id) values (?,?,?)");
+        $stmt = $con->prepare("INSERT INTO Projektet(emri, path, img, user_id) values (?,?,?,?)");
 
-        $stmt->bind_param("ssi", $p->emri, $p->path, $p->user_id);
+        $stmt->bind_param("sssi", $p->emri, $p->path, $p->img, $p->user_id);
         
         if($stmt->execute())
         {
             $stmt->close();
 
+
+            //pathi i projektit
             $fp = fopen($p->path.''.$p->emri.'.html', 'w');
             
             $filename = "../webcontent/index.php";
@@ -175,4 +178,28 @@ class Projektet{
             return "No results found.";
         }
     }
+
+    public static function makeProject($emri, $img, $user_id)
+    {
+        $sqlConnection = new SQLConnection();
+        $con = $sqlConnection->connection();
+
+        $stmt = $con->prepare("INSERT INTO Projektet(emri, img, user_id) values (?,?,?)");
+
+        $stmt->bind_param("ssi", $emri, $img, $user_id);
+        
+        if($stmt->execute())
+        {
+            $stmt->close();
+            return true;
+        }
+        else
+        {
+            echo "Error insert record: " . $con->error;
+        }
+        return false; 
+    }
 }
+
+
+

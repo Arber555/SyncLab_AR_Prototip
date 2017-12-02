@@ -1,86 +1,122 @@
-<html>
-<script src="../ARjs/aframe.min.js"></script>
-<!-- include ar.js for A-Frame -->
-<script src="../ARjs/aframe-ar.js"></script>
-<body style='margin : 0px; overflow: hidden;'>
-    <div style='position: absolute; top: 10px; width:100%; text-align: center; z-index: 1;'>
-        <input type="button" value="Sphere" onclick="trupat('reth');" />
-        <input type="button" value="Box" onclick="trupat('kub');" />
-    </div>
-    <a-scene embedded arjs='trackingMethod: best;' id="scene">
-        <a-marker preset='hiro' id="marker">
-            <!-- here define the content to display on top of the marker -->
-            <a-box position='0 0.5 0' material='color: red; opacity: 0.5;' id="object"></a-box>
-            <!--<a-sphere position='0 0.5 0' material='color: red; opacity: 0.5;'s></a-sphere>-->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>SyncLab</title>
+        <link rel="stylesheet" href="css/style.css"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">    
+        <link href="https://fonts.googleapis.com/css?family=Quicksand" rel="stylesheet">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    </head>
+    <body background="img/background.png">
+        <header>
 
-        </a-marker>
+            <div id="wrapper">
+                <div class="main-logo">
+                    <img src="images/logo.png" alt="Logo">
+                </div>   
 
-        <!-- define your gltf asset -->
-            <!--<a-assets>
-                <a-asset-item id="tree" src="../3D_Models/busterDrone/busterDrone.gltf"></a-asset-item>
-            </a-assets>-->
-                <!-- use your gltf model -->
-            <!--<a-entity gltf-model="#tree"></a-entity>-->
+            </div>
+        </header>
 
-            <!-- define a simple camera -->
-        <a-entity camera></a-entity>
-    </a-scene>
-  <script>
-        function removeSyzat()
-        {
-            var ele = document.getElementById("arjsDebugUIContainer");
-            ele.remove();
+        <section>
 
-            var elec = document.getElementsByClassName("a-enter-vr")[0];
-            elec.remove();
-        }      
-        setTimeout(removeSyzat, 500);
-        
+            <div id="wrapper">
+                <div class="logo-img">
 
-        var elements = document.getElementById("marker");
-        function remove()
-        {
-            //var elements = document.getElementsByTagName('a-marker');
+                    <img src="images/Icon.svg">
 
-            /*while (elements[0]) {
-                elements[0].parentNode.removeChild(elements[0]);  //qetu osht gabimi kqyre edhe nihere
-            }*/
+                </div>
+            </div>
 
-            elements.removeChild(document.getElementById("object"));
-        }
+            <div id="wrapper">
+                <div class="info">
+                    <h1>Create Augmented Reality</h1>
 
-        function trupat(x)
-        {
-            if(x == "reth")
-            {
-                remove();
-                
-                var mycontent = document.createElement("a-sphere");
-                mycontent.setAttribute("position", "0 0.5 0");
-                mycontent.setAttribute("material", "color: red; opacity: 0.5;");
-                mycontent.setAttribute("id", "object");
-                elements.appendChild(mycontent);
-            } else if(x == "kub") {
-                remove();
-                
-                var mycontent = document.createElement("a-box");
-                mycontent.setAttribute("position", "0 0.5 0");
-                mycontent.setAttribute("material", "color: red; opacity: 0.5;");
-                mycontent.setAttribute("id", "object");
-                elements.appendChild(mycontent);
+                    <h2>Synclab is the easiest way to create augmented reality experiences</h2>
+
+                    <input type="button" id="login-style" value="Login"/>
+                    <input type="button" id="register-style" value="Register"/>
+                </div>
+            </div>
+        </section>
+
+        <div id="log-in" class="log-in">
+            <div class="login-content">
+                <span class="close-login">
+                    <i class="fa fa-close"></i>
+                </span>
+                <i class="fa fa-sign-in"></i>
+                <h1>Log in</h1>
+                <form action="login.php" method="post">
+                    <i class="fa fa-user"></i><input type="text" id="login-username" placeholder="Username" name="username">
+                    <i class="fa fa-key"></i><input type="password" id="login-password" placeholder="********" name="password">
+                    <div id="login-error"></div>
+                    <input type="submit" id="login-button" name="login-button" value="Log in">
+                    <span class="register-now"><p>Don't have an account?</p><a href="">Register now!</a></span>
+                </form>
+            </div> 
+        </div>
+
+        <script>
+            var login = document.getElementById("log-in");
+            var btn = document.getElementById("login-style");
+            var exit = document.getElementsByClassName("close-login")[0];
+
+            btn.onclick = function(){
+                login.style.display = "block";
             }
-        }
+            exit.onclick = function(){
+                login.style.display = "none";   
+            }
+        </script>
 
-  </script>
-  <?php
-    include "BL/SQLConnection.php";
-    include "BL/useri.php";
-    include "BL/projektet.php";
-    /*$u = new Useri("Test", "test123", "passtest", "email@email.com");
-    $u->insert($u);
-    $p = new Projektet("TestProjekti1", "BL/projects/", 1); arjsDebugUIContainer
-    $p->insert($p);*/
+        <script>
 
-    ?>
-</body>
+            function LogIn(){
+
+                var user = document.getElementById("login-username").value;
+                var pass = document.getElementById("login-password").value;
+
+                var users = [
+                    {
+                        username: "Marisa Ayala",
+                        password: "marisa123"
+                    },
+                    {
+                        username: "Elvis Maddox",
+                        password: "elvis123"
+                    },
+                    {
+                        username: "Kasey Morton",
+                        password: "kasey123"
+                    },
+                    {
+                        username: "admin",
+                        password: "admin"
+                    },
+                ];
+
+                for(var i = 0; i < users.length; i++)
+                {
+                    if(user == users[i].username  && pass == users[i].password){
+
+                        alert("Successfully logged in");
+                        localStorage.setItem("username",user);
+                        window.location = "logged-in.html";
+                        break;
+
+
+                    }
+                    else
+                        if(user != users[i].username && pass != users[i].password)
+                        {
+                            document.getElementById("login-error").innerHTML = "*Please enter your details correctly";                           
+                        }
+                }
+            }
+        </script>
+
+    </body>
 </html>
