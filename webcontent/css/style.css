@@ -14,7 +14,6 @@ body,html{
 #wrapper{
     width: 1000px;
     margin: 0 auto;
-    
 }
 header{
     width: 100%;
@@ -45,9 +44,7 @@ header h1{
 header #account .fa{
 
 }
-header #3dview h1{
-    
-}
+
 section{
     width: 100%;
     margin-top: 8.5%;
@@ -466,7 +463,7 @@ article img{
     left: 15%;
     top: 10%;
     height: 600px;
-    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2);
+    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2;
     position: absolute;
     border-radius: 10px;
     -webkit-animation-name: fromLeft;
@@ -507,8 +504,6 @@ article img{
 #create-project #upload:focus{
     outline: none;
 }
-
-
 #uploadimage-error{
     position: absolute;
     bottom: 20%;
@@ -518,51 +513,156 @@ article img{
 #left-container{
     position: fixed;
     left: 0;
+    border: 1px solid #ccc;    
+    height: 100%;
     overflow: hidden;
-
-}
-.left-container{
     
-    background-color: rgb(247,247,247);
-    overflow: hidden;
 }
-.left-container h1{
+
+.left-content{
+    padding: 10px;
+    
+}
+.left-content h1{
     font-size: 14px;
-    font-weight: bolder;
-    color: rgb(32,47,98);
+    color: rgb(40,55,103);
 }
-.left-container #search-models{
-    width: 100%;
-    margin-left: 3%;
-    overflow: hidden;
-}
-/*
-#models{
-    width: 53%;
-}
-.models{
-    background-color:rgb(132,207,187);   
-    margin: 1% 1%;
-    float: left;
-    padding: 14px 10px;
+#addmodel{
+    background-color: rgb(132,207,187);
     overflow: hidden;
     cursor: pointer;
+    margin-top: 2%;
 }
-.models img{
-    width: 40px;
-    height: 40px;
-    margin: 0 auto;
-    width: 100%;
-    
-}
-.models p{
+#addmodel p{
+    text-align: center;
     color: #fff;
-    font-size: 12px;
-    margin-top: 13%;
-    text-transform: uppercase;
-    font-weight: bold
+    font-weight: bold;
 }
-*/
+#addmodel img{
+    width: 166px;
+    height: 50px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+.left-content .models{
+    background-color: rgb(132,207,187);
+    
+    cursor: pointer;
+    float: left;
+    width: 52px;
+    margin: 4% 1% 0 1%;
+    margin-bottom: 13px;
+}
+
+.left-content .models .model{
+    height: 40px;
+    width: 50%;
+    margin: 0 auto;
+    padding: 0 10px 0 14px;
+
+}
+.left-content .models p{
+    color: #fff;
+    text-align: center;
+    font-size: 10px;
+}
+hr{
+    background-color: #ccc;
+    clear: both;
+}
+.left-content .visuals{
+    background-color: rgb(132,207,187);
+    overflow: hidden;
+    cursor: pointer;
+    float: left;
+    width: 48%;
+    margin: 1%;
+}
+.left-content .visuals .visual{
+    padding: 10px 25px 10px 25px;
+}
+.left-content .visuals p{
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+}
+.left-content .visuals img{
+    width: 30px;
+    height: 30px;
+}
+.read-more-state{
+    display: none;
+}
+.read-more-target .models{
+    opacity: 0;
+    max-height: 0;  
+    font-size: 0;
+    transition: .25s ease;
+}
+.read-more-target .first-models{
+    opacity: 0;
+    max-height: 0;  
+    font-size: 0;
+    transition: .25s ease;
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-target .models{
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+
+}
+.read-more-state:checked ~ .read-more-wrap .read-more-target .first-models{
+    opacity: 1;
+    font-size: inherit;
+    max-height: 999em;
+
+}
+.read-more-wrap{
+    background-color: #fff;
+
+}
+#basic-model{
+    background-color: rgb(132,207,187);
+    overflow: hidden;
+    cursor: pointer;
+    margin-top: 2%;
+}
+#basic-model p{
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+}
+#basic-model img{
+    width: 166px;
+    height: 50px;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+#right-container{
+    position: fixed;
+    right: 0;
+    border: 1px solid #ccc;  
+    height: 100%;
+    overflow: hidden;
+}
+.right-content{
+    padding: 10px;
+}
+.right-content input{
+    display: block;
+}
+.right-content #test-button,
+.right-content #save-button{
+    border: none;
+    background-color: rgb(132,207,187);
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+    font-weight: bold;
+    color: #fff;
+    margin:2%;
+
+}
 @-webkit-keyframes fromTop{
     from{
         top:-300px; opacity:0;

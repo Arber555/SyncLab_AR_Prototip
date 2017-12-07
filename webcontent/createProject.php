@@ -13,11 +13,12 @@
         $img = filter_input(INPUT_POST, 'img');
 
         $projectResult = projektet::makeProject($emri, $img, $_SESSION['ID']);
+        Temp::insertNew();
 
         if($projectResult)
         {
             echo "u bo";
-            header("Location: index.php"); 
+            header("Location: AR_Drag_and_Drop.php"); 
         }
         else
         {
