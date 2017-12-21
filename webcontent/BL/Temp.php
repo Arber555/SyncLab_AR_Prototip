@@ -24,9 +24,9 @@ class Temp{
         $myfile = fopen($fileName, "w");
 
         fwrite($myfile, "<html>
-        <script src='../ARjs/aframe.min.js'></script>
+        <script src='../../ARjs/aframe.min.js'></script>
         <!-- include ar.js for A-Frame -->
-        <script src='../ARjs/aframe-ar.js'></script>
+        <script src='../../ARjs/aframe-ar.js'></script>
         <body style='margin : 0px; overflow: hidden;'>
             <a-scene embedded arjs='trackingMethod: best;' id='scene'>
                 <a-marker preset='hiro' id='marker'>

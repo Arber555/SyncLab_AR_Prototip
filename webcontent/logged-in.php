@@ -60,7 +60,8 @@
         <div id="find">
             <div class="sort">
                 <h4>Sort:
-                    <input type="text" id="sort" placeholder="Name">
+      
+                    <input type="text" id="sort" placeholder="Name" vertical-align="middle">
                 </h4>
             </div>
 

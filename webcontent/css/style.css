@@ -31,8 +31,8 @@ header .main-logo{
 }
 header .main-logo img{
 
-    width: 140px;
-    height: 50px;
+    width: 160px;
+    height: 40px;
 }
 header #account{
     float: right;  
@@ -127,6 +127,17 @@ section .info{
     background-color: rgba(0,0,0,0.4);
     display: none;
 }
+#register{
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+    display: none;
+}
 .login-content{
     width: 40%;
     background-color: #fff;
@@ -141,6 +152,20 @@ section .info{
     animation-name: fromTop;
     animation-duration: 0.4s;
 
+}
+.register-content{
+    width: 40%;
+    background-color: #fff;
+    left: 30%;
+    top: 10%;
+    height: 400px;
+    box-shadow: 2px 0px 90px 10px rgba(0, 0, 0, .2);
+    position: absolute;
+    border-radius: 10px;
+    -webkit-animation-name: fromTop;
+    -webkit-animation-duration: 0.4s;
+    animation-name: fromTop;
+    animation-duration: 0.4s;
 }
 #login-username{
     position: absolute;
@@ -162,6 +187,81 @@ section .info{
     width: 30%;
     padding: 10px 20px;
 }
+#register-name{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 20%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#register-lastname{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 30%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#register-username{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 40%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#register-email{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 50%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#register-password{
+    position: absolute;
+    border: none;
+    border-bottom: 1px solid #ccc;
+    top: 60%;
+    left: 20%;
+    color: rgb(132,207,187);
+    width: 30%;
+    padding: 10px 20px;
+}
+#register-name:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#register-lastname:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#register-username:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#register-email:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
+#register-password:focus{
+    outline: none;
+    border-bottom: 2px solid rgb(132,207,187);
+    transition: 0.5s all ease;
+}
 #login-username:focus{
     outline: none;
     border-bottom: 2px solid rgb(132,207,187);
@@ -178,11 +278,18 @@ section .info{
     top: 29%;
     font-size: 150px;
 }
+#register .fa-user-plus{
+    position: absolute;
+    right: 5%;
+    top: 29%;
+    font-size: 150px;
+}
 #log-in .fa-user{
     position: absolute;
     top: 33%;
     left: 17%;    
 }
+
 #log-in .fa-key{
     position: absolute;
     top: 53%;
@@ -193,6 +300,17 @@ section .info{
     right: 0;
     padding: 20px;
     border-radius: 0 10px 0 0;
+}
+#register .fa-close{
+    position: absolute;
+    right: 0;
+    padding: 20px;
+    border-radius: 0 10px 0 0;
+}
+#register .fa-close:hover{
+    background-color: rgb(132,207,187);
+    cursor: pointer;
+    transition: 0.5s all ease;
 }
 #log-in .fa-close:hover{
     background-color: rgb(132,207,187);
@@ -219,9 +337,30 @@ section .info{
 #log-in #login-button:focus{
     outline: none;    
 }
+#register #register-button{
+    position: absolute;
+    top: 70%;
+    left: 20%;
+    border: none;
+    background-color: rgb(132,207,187);
+    color: #fff;
+    cursor: pointer;
+    padding: 12px 15px;
+    border-radius: 6px;
+}
+#register #register-button:focus{
+    outline: none;    
+}
 #log-in h1{
     position: absolute;
     top: 10%;
+    left: 17%;
+    font-size: 40px;
+    color: rgb(132,207,187);
+}
+#register h1{
+    position: absolute;
+    top: 8%;
     left: 17%;
     font-size: 40px;
     color: rgb(132,207,187);
@@ -288,6 +427,7 @@ hr{
     overflow: hidden;
 
 }
+
 #find .sort h4{
     float: left;
 }
@@ -298,6 +438,7 @@ hr{
 #search{
     border: none;
     border: #fff;
+ 
 }
 #sort:focus,
 #search:focus{
@@ -387,7 +528,7 @@ article img{
     top: 10%;
 
 }
-#create-project #project-name{
+ #project-name{
     display: block;
     border-bottom: 2px solid rgb(243,243,243);
     border-top: none;
@@ -397,10 +538,11 @@ article img{
     position: absolute;
     top: 40%;
     font-size: 30px;
-    padding-left: 10%;
+    margin-left: 6%;
+    text-align: center;
 
 }
-#create-project #project-name:focus{
+#project-name:focus{
     outline: none;
 }
 #project-name::placeholder{
@@ -544,6 +686,15 @@ article img{
     padding: 10px 0 10px 0;
     text-align: center;
 }
+#left-container{
+    background-color: rgb(247,247,247); 
+    overflow: hidden;
+   
+}
+#right-container{
+    background-color: rgb(247,247,247); 
+    overflow: hidden;
+}
 .left-content .models{
     background-color: rgb(132,207,187);
     
@@ -617,10 +768,7 @@ hr{
     max-height: 999em;
 
 }
-.read-more-wrap{
-    background-color: #fff;
 
-}
 #basic-model{
     background-color: rgb(132,207,187);
     overflow: hidden;
@@ -637,6 +785,16 @@ hr{
     height: 50px;
     padding: 10px 0 10px 0;
     text-align: center;
+}
+#submitbox{
+    display: none;
+
+}
+#submitcylinder{
+    display: none;
+}
+#submitsphere{
+    display: none;
 }
 #right-container{
     position: fixed;
@@ -661,7 +819,10 @@ hr{
     font-weight: bold;
     color: #fff;
     margin:2%;
-
+    
+}
+.right-content a #test-button{
+    text-decoration: none;
 }
 @-webkit-keyframes fromTop{
     from{

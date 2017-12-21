@@ -7,14 +7,15 @@ class Useri{
     private $userName;
     private $password;
     private $email;
+    private $mbiemri;
     
-    public function __construct($e, $u, $p, $em)
+    public function __construct($e, $u, $p, $em, $m)
     {
         $this->emri = $e;
         $this->userName = $u;
         $this->password = $p;
         $this->email = $em;
-
+        $this->mbiemri = $m;
     }
 
     function getEmri() {
@@ -53,9 +54,9 @@ class Useri{
     {
         $sqlConnection = new SQLConnection();
         $con = $sqlConnection->connection();
-        $stmt = $con->prepare("INSERT INTO Useri(emri, username, password, email) values (?,?,?,?)");
+        $stmt = $con->prepare("INSERT INTO Useri(emri, mbiemri, username, password, email) values (?,?,?,?,?)");
 
-        $stmt->bind_param("ssss", $u->emri, $u->userName, $u->password, $u->email);
+        $stmt->bind_param("sssss", $u->emri, $u->mbiemri, $u->userName, $u->password, $u->email);
         
         if($stmt->execute())
         {

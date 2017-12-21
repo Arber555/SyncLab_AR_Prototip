@@ -84,27 +84,35 @@
             <div class="read-more-wrap">
                 <span class="read-more-target">
                     <div class="models">
-                        <img class="model" src="images/Box.svg" alt="">
+                    <label for="submitbox">
+                        <img for="submit" class="model" src="images/Box.svg" alt="">
                         <p>Box</p>
+                        </label>
+                    
                         <form name="hidden-form" action="AR_Drag_and_Drop.php" method="post">
                             <input type="hidden" name="Box" value="<a-box position='0 0.5 0' material='color: red; opacity: 0.5;' id='object'></a-box>">
-                            <input name="submit" type="submit" value="Box" />
+                            <input name="submit" id="submitbox" type="submit" value="Box" />
                         </form>
                     </div>
                     <div class="models">
+                        <label for="submitcylinder">
                         <img class="model" src="images/Cylinder.svg" alt="">
                         <p>Cylinder</p>
+                        </label>
+
                         <form name="hidden-form" action="AR_Drag_and_Drop.php" method="post">
                             <input type="hidden" name="Cylinder" value="Cylinder">
-                            <input name="submit" type="submit" value="Cylinder" />
+                            <input name="submit" id="submitcylinder" type="submit" value="Cylinder" />
                         </form>
                     </div>
                     <div class="models">
+                        <label for="submitsphere">
                         <img class="model" src="images/Sphere.svg" alt="">
                         <p>Sphere</p>
+                        </label>
                         <form name="hidden-form" action="AR_Drag_and_Drop.php" method="post">
                             <input type="hidden" name="Sphere" value="<a-sphere position='0 0.5 0' material='color: red; opacity: 0.5;'></a-sphere>">
-                            <input name="submit" type="submit" value="Sphere" />
+                            <input name="submit" id="submitsphere" type="submit" value="Sphere" />
                         </form>
                     </div>
                 </span>
@@ -115,22 +123,46 @@
             <h1>Visuals</h1>
             <input type="text" id="visual-search" placeholder="Search on visuals">
             <div id="visuals">
+            <input type="checkbox" class="read-more-state" id="post-3" />
+            <label for="post-3" class="read-more-trigger">
                 <div class="visuals">
                     <img class="visual" src="images/text.svg" alt="">
                     <p>Lable</p>
                 </div>
+</label>
+            
                 <div class="visuals">
                     <img class="visual" src="images/image.svg" alt="">
                     <p>Image</p>
                 </div>
+                <div class="read-more-wrap">
+                <span class="read-more-target">
+                    <div class="models">
+                        <form action="AR_Drag_and_Drop.php" method="post">
+                            <input type="text" name="label" id="labelname" value="Type text here..">
+                            <input type="submit" name="textSubmit" id="submitsphere" value="Sphere" />
+                        </form>
+                    </div>
+                </span>
+            </div>
             </div>
         </div>
     </div>
+    
+    <?php
+        spl_autoload_register(function ($class_name) {
+            include 'C:\xampp\htdocs\SyncLab_AR_Prototip\webcontent\BL/'.$class_name . '.php';
+        });
+
+
+        $temp = new Temp("temp");
+        $num =  $temp->getTheLastID() - 1;
+    ?>
 
     <div id="right-container">
         <div class="right-content">
-            <a href="http://localhost/SyncLab_AR_Prototip/webcontent/temp.php">Test</a>
-            <!--<input id="test-button" type="button" value="Test">-->
+            <a href="http://localhost/SyncLab_AR_Prototip/webcontent/temp/temp<?php echo $num; ?>.php" target="_blank"><input id="test-button" type="button" value="Test"></a>
+            
             <input id="save-button" type="button" value="Save">
         </div>
     </div>
@@ -138,6 +170,8 @@
     <?php
         $basicModel = filter_input(INPUT_POST, 'submit');
         
+        $tempCount = "temp/temp".  $num .".php";
+
         if(isset($basicModel))
         {
             $box = filter_input(INPUT_POST, 'Box');
@@ -145,14 +179,14 @@
 
             if(isset($box))
             {
-                $f = fopen("temp.php", "r+");
+                $f = fopen($tempCount, "r+");
                 
-                $oldstr = file_get_contents("temp.php");
+                $oldstr = file_get_contents($tempCount);
                 //$str_to_insert = "Write the string to insert here";
                 $specificLine = "<a-marker preset='hiro' id='marker'>";
                 
                 
-                // read lines with fgets() until you have reached the right one
+                //read lines with fgets() until you have reached the right one
                 //insert the line and than write in the file.
                 
                 
@@ -160,7 +194,7 @@
                     if (strpos($buffer, $specificLine) !== false) {
                         $pos = ftell($f); 
                         $newstr = substr_replace($oldstr, $box, $pos, 0);
-                        file_put_contents("temp.php", $newstr);
+                        file_put_contents($tempCount, $newstr);
                         break;
                     }
                 }
@@ -169,8 +203,55 @@
 
             if(isset($sphere))
             {
-
+                $f = fopen($tempCount, "r+");
+                
+                $oldstr = file_get_contents($tempCount);
+                //$str_to_insert = "Write the string to insert here";
+                $specificLine = "<a-marker preset='hiro' id='marker'>";
+                
+                
+                //read lines with fgets() until you have reached the right one
+                //insert the line and than write in the file.
+                
+                
+                while (($buffer = fgets($f)) !== false) {
+                    if (strpos($buffer, $specificLine) !== false) {
+                        $pos = ftell($f); 
+                        $newstr = substr_replace($oldstr, $sphere, $pos, 0);
+                        file_put_contents($tempCount, $newstr);
+                        break;
+                    }
+                }
+                fclose($f);
             }
+        }
+
+        //label
+        $labelBtn =  filter_input(INPUT_POST, 'textSubmit');
+        $labelText = filter_input(INPUT_POST, 'label');
+
+        if(isset($labelBtn))
+        {
+            $f = fopen($tempCount, "r+");
+            
+            $oldstr = file_get_contents($tempCount);
+            //$str_to_insert = "Write the string to insert here";
+            $specificLine = "<a-marker preset='hiro' id='marker'>";
+            
+            
+            //read lines with fgets() until you have reached the right one
+            //insert the line and than write in the file.
+            $htmlText = "<a-text value='".$labelText."'></a-text>";
+            
+            while (($buffer = fgets($f)) !== false) {
+                if (strpos($buffer, $specificLine) !== false) {
+                    $pos = ftell($f); 
+                    $newstr = substr_replace($oldstr, $htmlText, $pos, 0);
+                    file_put_contents($tempCount, $newstr);
+                    break;
+                }
+            }
+            fclose($f);
         }
     ?>
 

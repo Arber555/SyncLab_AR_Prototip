@@ -19,7 +19,7 @@
 
             </div>
         </header>
-
+        
         <section>
 
             <div id="wrapper">
@@ -29,7 +29,7 @@
 
                 </div>
             </div>
-
+          
             <div id="wrapper">
                 <div class="info">
                     <h1>Create Augmented Reality</h1>
@@ -41,7 +41,7 @@
                 </div>
             </div>
         </section>
-
+        
         <div id="log-in" class="log-in">
             <div class="login-content">
                 <span class="close-login">
@@ -58,6 +58,36 @@
                 </form>
             </div> 
         </div>
+
+        <div id="register" class="register">
+            <div class="register-content">
+                <span class="close-register">
+                    <i class="fa fa-close"></i>
+                </span>
+                <i class="fa fa-user-plus"></i>
+                <h1>Register</h1>
+                <form action="register.php" method="post">
+                    <input type="text" id="register-name" placeholder="Name" name="name">
+                    <input type="text" id="register-lastname" placeholder="Lastname" name="lastname">
+                    <input type="text" id="register-username" placeholder="Username" name="username">
+                    <input type="email" id="register-email" placeholder="Email" name="email">
+                    <input type="password" id="register-password" placeholder="********" name="password">
+                    <input type="submit" id="register-button" name="register-button" value="Register">
+                </form>
+            </div>
+        </div>
+        <script>
+            var register = document.getElementById("register");
+            var btn = document.getElementById("register-style");
+            var exit = document.getElementsByClassName("close-register")[0];
+
+            btn.onclick = function(){
+                register.style.display = "block";
+            }
+            exit.onclick = function(){
+                register.style.display = "none";   
+            }
+        </script>
 
         <script>
             var login = document.getElementById("log-in");
